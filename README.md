@@ -23,7 +23,6 @@ A simple and colorful expense tracker app to manage your daily spending.
 ---
 
 ## ▶️ Getting Started
-
 ```bash
 npm install
 npm run dev
@@ -31,3 +30,6 @@ npm run dev
 
 ---
 
+## 👩‍💻 Author
+
+[Madhumithra R](https://github.com/Madhumithra-R)
