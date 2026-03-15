@@ -23,6 +23,7 @@ A simple and colorful expense tracker app to manage your daily spending.
 ---
 
 ## ▶️ Getting Started
+
 ```bash
 npm install
 npm run dev
