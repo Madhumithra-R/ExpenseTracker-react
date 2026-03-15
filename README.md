@@ -1,10 +1,33 @@
+# 💸 Expense Tracker
 
-# Expense Tracker
- 
-Built with React + Vite
- 
-## Features
-- Add & delete expenses
-- Filter by category
-- Monthly & total summary
-- localStorage suppor
+A simple and colorful expense tracker app to manage your daily spending.
+
+---
+
+## ✨ Features
+
+- Add expenses with title, amount & category
+- View total and monthly spending
+- Filter expenses by category
+- Delete expenses & clear all
+- Data saved with localStorage
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** — UI & state management
+- **Vite** — Fast build tool
+- **localStorage** — Data persistence
+
+---
+
+## ▶️ Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
