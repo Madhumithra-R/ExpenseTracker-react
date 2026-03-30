@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
-/* 1. Global Reset & Soft Background */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,10 +7,8 @@
 }
 
 body {
-  /* Using a soft, light mesh gradient instead of dark orange */
-  background: radial-gradient(at 0% 0%, hsla(225,39%,30%,0) 0, transparent 50%),
-              radial-gradient(at 50% 0%, rgba(99, 102, 241, 0.15) 0, transparent 50%),
-              radial-gradient(at 100% 0%, rgba(20, 184, 166, 0.1) 0, transparent 50%),
+  background: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0, transparent 50%),
+              radial-gradient(at 100% 100%, rgba(20, 184, 166, 0.05) 0, transparent 50%),
               #f8fafc;
   background-attachment: fixed;
   display: flex;
@@ -25,160 +22,155 @@ body {
 .app {
   font-family: 'Poppins', sans-serif;
   width: 100%;
-  max-width: 660px;
-  position: relative;
-  z-index: 10;
+  max-width: 500px; /* Slimmer look for better alignment */
 }
 
-/* 2. Header Redesign */
+/* Header Alignment */
+.top-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .app-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  /* Changed Orange to Indigo/Violet */
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
   background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 28px;
+  font-size: 30px;
+  margin-bottom: 1rem;
   box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
 }
 
-.app-title {
-  font-size: 1.6rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #1e293b 0%, #6366f1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* 3. Summary Cards (Soft Pastel Style) */
+/* Summary Grid Fix */
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 2rem;
 }
 
 .sum-card {
-  border-radius: 20px;
-  padding: 20px;
-  background: white;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  border-radius: 16px;
+  padding: 16px 10px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.sum-card:hover { transform: translateY(-3px); }
+.sum-card.total { background: #6366f1; }
+.sum-card.month { background: #14b8a6; }
+.sum-card.count-card { background: #f43f5e; }
 
-/* Card colors: Soft Indigo, Teal, and Rose */
-.sum-card.total { background: #6366f1; color: #fff; }
-.sum-card.month { background: #14b8a6; color: #fff; }
-.sum-card.count-card { background: #f43f5e; color: #fff; }
+.sum-value { font-size: 1.1rem; font-weight: 700; }
 
-.sum-label {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  opacity: 0.9;
-  margin-bottom: 4px;
-}
-
-/* 4. Form Styling (Glassmorphism) */
+/* FORM ALIGNMENT FIX */
 .form-wrap {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: white;
   border-radius: 24px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%; /* Ensures full width */
 }
 
 .field label {
-  color: #64748b;
   font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-align: left;
 }
 
 .field input, .field select {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  color: #1e293b;
+  width: 100%;
   padding: 12px;
+  border: 1.5px solid #e2e8f0;
   border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
-.field input:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-}
+.field input:focus { border-color: #6366f1; }
 
 .add-btn {
+  width: 100%;
+  padding: 14px;
   background: #6366f1;
-  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.25);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
 }
 
-.add-btn:hover {
-  background: #4f46e5;
-  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.35);
+.add-btn:hover { background: #4f46e5; transform: translateY(-1px); }
+
+/* CATEGORY CHIPS FIX */
+.cat-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto; /* Allows horizontal scroll for chips */
+  padding-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
-/* 5. Filter Chips */
+.cat-chips::-webkit-scrollbar { display: none; } /* Hide scrollbar for chips */
+
 .chip {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  color: #64748b;
+  padding: 6px 16px;
+  background: white;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .chip.active {
   background: #6366f1;
-  color: #fff;
+  color: white;
   border-color: #6366f1;
 }
 
-/* 6. List & Scrolling Fix */
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  /* Fix: Prevents the page from expanding forever */
-  max-height: 450px; 
+/* LIST SCROLLING FIX */
+.list-container {
+  max-height: 350px; /* Sticky feel - the rest of the page stays put */
   overflow-y: auto;
-  padding-right: 8px;
+  padding-right: 5px;
 }
 
-/* Custom Scrollbar for the list */
-.list::-webkit-scrollbar {
-  width: 6px;
-}
-.list::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 10px;
-}
+.list-container::-webkit-scrollbar { width: 4px; }
+.list-container::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
 
 .item {
   background: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
   border: 1px solid #f1f5f9;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
-.item:hover {
-  transform: scale(1.01);
-  border-color: #6366f1;
-}
-
-.item-title { color: #1e293b; }
-
-.item-amt {
-  background: none;
-  -webkit-text-fill-color: #1e293b;
-  color: #1e293b;
-  font-weight: 800;
-}
-
-/* Responsive Fixes */
-@media (max-width: 480px) {
-  .summary-grid { gap: 8px; }
-  .sum-card { padding: 12px; }
-}
+.item-info { display: flex; flex-direction: column; }
+.item-title { font-weight: 600; font-size: 14px; }
+.item-amt { font-weight: 700; color: #1e293b; }
