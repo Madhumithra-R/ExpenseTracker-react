@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,165 +7,175 @@
 }
 
 body {
-  /* 1. ATTRACTIVE BACKGROUND: Modern Mesh Gradient */
-  background: radial-gradient(at 0% 0%, rgba(108, 99, 255, 0.15) 0, transparent 50%),
-              radial-gradient(at 100% 100%, rgba(232, 245, 233, 0.2) 0, transparent 50%),
-              #0f172a; /* Deep Navy base */
+  /* Dark, attractive deep space background */
+  background: radial-gradient(circle at top right, #1e293b, #0f172a);
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   padding: 2rem 1rem;
   min-height: 100vh;
-  color: #f8fafc;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .app {
-  font-family: 'Plus Jakarta Sans', sans-serif;
   width: 100%;
-  max-width: 900px; /* Increased for Desktop */
-  animation: fadeIn 0.8s ease-out;
+  max-width: 700px; /* Slightly wider for better desktop feel */
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Header Styling */
+/* Header */
 .top-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 2rem;
+  gap: 12px;
+  margin-bottom: 1.5rem;
 }
 
 .app-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #6C63FF, #8B5CF6);
-  box-shadow: 0 8px 16px rgba(108, 99, 255, 0.3);
+  width: 45px;
+  height: 45px;
+  border-radius: 14px;
+  background: #6366f1;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 24px;
+  font-size: 22px;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
 .app-title {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.5px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
-/* 2. RESPONSIVE SUMMARY GRID (Aligns properly in all modes) */
+.app-sub {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* Summary Cards - Fixed Grid */
 .summary-grid {
   display: grid;
-  /* Desktop: 3 columns | Tablet: 2 cols | Phone: 1 col */
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-  gap: 20px;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 1.5rem;
 }
 
 .sum-card {
-  border-radius: 20px;
-  padding: 24px;
-  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05); /* Glass effect */
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease;
 }
-
-.sum-card:hover { transform: translateY(-5px); }
 
 .sum-card.total {
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.9), rgba(139, 92, 246, 0.9));
-  box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+  background: #6366f1; /* Vibrant Indigo */
+  color: #fff;
 }
 
-.sum-card.month { background: rgba(255, 255, 255, 0.05); color: #4ade80; }
-.sum-card.count-card { background: rgba(255, 255, 255, 0.05); color: #fbbf24; }
+.sum-card.month { color: #4ade80; } /* Emerald Green */
+.sum-card.count-card { color: #fbbf24; } /* Amber */
 
-/* 3. MODERN FORM WRAP */
+.sum-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.sum-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Form - Alignment Fix */
 .form-wrap {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
+  background: rgba(30, 41, 59, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-row {
   display: grid;
-  /* Proper desktop alignment: Title takes more space, others follow */
-  grid-template-columns: 2fr 1fr 1fr; 
-  gap: 15px;
-  align-items: end;
+  grid-template-columns: 2fr 1fr 1fr; /* Better Desktop alignment */
+  gap: 12px;
 }
 
 .field label {
+  font-size: 11px;
+  font-weight: 600;
   color: #94a3b8;
-  font-size: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .field input, .field select {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0f172a;
+  border: 1.5px solid #334155;
+  border-radius: 10px;
+  padding: 12px;
   color: #fff;
-  padding: 14px;
-  border-radius: 12px;
-  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
 }
+
+.field input:focus { border-color: #6366f1; }
 
 .add-btn {
-  grid-column: 1 / -1; /* Makes button span full width of the grid */
-  background: #6C63FF;
-  padding: 16px;
-  font-size: 16px;
-  border-radius: 14px;
-  margin-top: 10px;
-  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.4);
+  grid-column: 1 / 2; /* Aligns under Title on Desktop */
+  width: auto;
+  min-width: 150px;
+  padding: 12px;
+  margin-top: 15px;
+  background: #6366f1;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
 }
 
-/* 4. CHIPS & LIST */
+.add-btn:hover { background: #4f46e5; transform: translateY(-2px); }
+
+/* Chips */
+.cat-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
 .chip {
+  padding: 6px 16px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #334155;
   color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.chip.active { /* Add this class to your active filter in JS */
-  background: #6C63FF;
-  color: white;
-  border-color: #6C63FF;
-}
+.chip:hover { border-color: #6366f1; color: #fff; }
 
+/* List Items */
 .item {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 16px 20px;
+  padding: 14px;
+  margin-bottom: 8px;
+  border-radius: 14px;
 }
 
-.item-title { color: #f1f5f9; }
-.item-amt { color: #fff; font-size: 18px; }
+.item-title { color: #f8fafc; font-size: 15px; }
+.item-amt { color: #f8fafc; }
 
-/* 5. RESPONSIVE BREAKPOINTS */
-
-/* Tablet Mode */
-@media (max-width: 768px) {
-  .form-row {
-    grid-template-columns: 1fr 1fr; /* Title on one row, rest below */
-  }
-  .field.full { grid-column: 1 / -1; }
-}
-
-/* Phone Mode */
-@media (max-width: 480px) {
-  body { padding: 1rem 0.5rem; }
-  .form-row { grid-template-columns: 1fr; }
+/* RESPONSIVE FIXES */
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; } /* Stacks for Phone */
   .summary-grid { grid-template-columns: 1fr; }
-  .app-title { font-size: 1.4rem; }
-  .form-wrap { padding: 1.2rem; }
+  .add-btn { width: 100%; }
 }
