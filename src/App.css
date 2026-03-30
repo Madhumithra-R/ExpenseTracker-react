@@ -1,3 +1,4 @@
+/* App.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 * {
@@ -7,7 +8,8 @@
 }
 
 body {
-  background: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0, transparent 50%),
+  /* Soft Light Mesh Background */
+  background: radial-gradient(at 0% 0%, rgba(108, 99, 255, 0.05) 0, transparent 50%),
               radial-gradient(at 100% 100%, rgba(20, 184, 166, 0.05) 0, transparent 50%),
               #f8fafc;
   background-attachment: fixed;
@@ -17,38 +19,50 @@ body {
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
   color: #1e293b;
+  overflow-x: hidden;
 }
 
 .app {
   font-family: 'Poppins', sans-serif;
   width: 100%;
-  max-width: 500px; /* Slimmer look for better alignment */
+  max-width: 500px;
 }
 
-/* Header Alignment */
+/* Header Section */
 .top-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  gap: 16px;
   margin-bottom: 2rem;
 }
 
 .app-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #6c63ff 0%, #3f37c9 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 30px;
-  margin-bottom: 1rem;
-  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+  font-size: 26px;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
 }
 
-/* Summary Grid Fix */
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.app-sub {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Summary Cards (3 Columns) */
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -57,120 +71,202 @@ body {
 }
 
 .sum-card {
-  border-radius: 16px;
-  padding: 16px 10px;
+  border-radius: 18px;
+  padding: 18px 10px;
   text-align: center;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  color: #fff;
+  transition: transform 0.3s ease;
 }
 
-.sum-card.total { background: #6366f1; }
-.sum-card.month { background: #14b8a6; }
-.sum-card.count-card { background: #f43f5e; }
+.sum-card:hover { transform: translateY(-3px); }
 
-.sum-value { font-size: 1.1rem; font-weight: 700; }
+.sum-card.total { background: #6c63ff; box-shadow: 0 8px 20px rgba(108, 99, 255, 0.2); }
+.sum-card.month { background: #14b8a6; box-shadow: 0 8px 20px rgba(20, 184, 166, 0.2); }
+.sum-card.count-card { background: #f43f5e; box-shadow: 0 8px 20px rgba(244, 63, 94, 0.2); }
 
-/* FORM ALIGNMENT FIX */
+.sum-label { font-size: 9px; font-weight: 700; text-transform: uppercase; opacity: 0.9; margin-bottom: 4px; letter-spacing: 0.5px; }
+.sum-value { font-size: 1.1rem; font-weight: 800; }
+
+/* Form Container - Alignment Fix */
 .form-wrap {
-  background: white;
+  background: #ffffff;
   border-radius: 24px;
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.03);
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 15px;
+  margin-bottom: 15px;
 }
 
 .field {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  width: 100%; /* Ensures full width */
 }
 
+.field.full { grid-column: 1 / -1; }
+
 .field label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #64748b;
-  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
 }
 
 .field input, .field select {
   width: 100%;
-  padding: 12px;
-  border: 1.5px solid #e2e8f0;
+  padding: 12px 14px;
+  border: 1.5px solid #f1f5f9;
   border-radius: 12px;
+  background: #f8fafc;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
+  color: #1e293b;
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.2s;
 }
 
-.field input:focus { border-color: #6366f1; }
+.field input:focus, .field select:focus {
+  border-color: #6c63ff;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.08);
+}
+
+.err-msg { font-size: 12px; color: #f43f5e; margin-bottom: 12px; font-weight: 600; text-align: center; }
 
 .add-btn {
   width: 100%;
   padding: 14px;
-  background: #6366f1;
-  color: white;
+  background: #6c63ff;
+  color: #fff;
   border: none;
   border-radius: 12px;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+  transition: all 0.3s;
 }
 
-.add-btn:hover { background: #4f46e5; transform: translateY(-1px); }
+.add-btn:hover { background: #5a52e0; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3); }
 
-/* CATEGORY CHIPS FIX */
+/* Category Chips (Horizontal Scrollable) */
 .cat-chips {
   display: flex;
   gap: 8px;
-  overflow-x: auto; /* Allows horizontal scroll for chips */
-  padding-bottom: 10px;
+  overflow-x: auto;
+  padding-bottom: 15px;
   margin-bottom: 1rem;
+  scrollbar-width: none; /* Firefox */
 }
 
-.cat-chips::-webkit-scrollbar { display: none; } /* Hide scrollbar for chips */
+.cat-chips::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
 .chip {
-  padding: 6px 16px;
-  background: white;
+  padding: 7px 16px;
+  background: #fff;
   border: 1.5px solid #e2e8f0;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
+  color: #64748b;
   cursor: pointer;
   white-space: nowrap;
+  transition: all 0.2s;
 }
 
 .chip.active {
-  background: #6366f1;
-  color: white;
-  border-color: #6366f1;
+  /* Style handled by inline JS in your App.jsx, but adding default shadow here */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* LIST SCROLLING FIX */
-.list-container {
-  max-height: 350px; /* Sticky feel - the rest of the page stays put */
-  overflow-y: auto;
-  padding-right: 5px;
-}
-
-.list-container::-webkit-scrollbar { width: 4px; }
-.list-container::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
-
-.item {
-  background: white;
-  padding: 12px 16px;
-  border-radius: 12px;
+/* List Section Header */
+.sec-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
-  border: 1px solid #f1f5f9;
+  margin-bottom: 1rem;
 }
 
-.item-info { display: flex; flex-direction: column; }
-.item-title { font-weight: 600; font-size: 14px; }
-.item-amt { font-weight: 700; color: #1e293b; }
+.sec-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.5px; }
+.clear-btn { background: none; border: none; color: #f43f5e; font-weight: 700; font-size: 12px; cursor: pointer; }
+
+/* Internal Scroll Area for List */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px; /* Fixing the scrolling issue */
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Custom Scrollbar for the list */
+.list::-webkit-scrollbar { width: 5px; }
+.list::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #f1f5f9;
+  transition: all 0.2s;
+}
+
+.item:hover { transform: translateX(4px); border-color: #e2e8f0; }
+
+.cat-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.item-info { flex: 1; }
+.item-title { font-size: 14px; font-weight: 600; color: #1e293b; }
+.item-date { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+
+.item-amt { font-size: 15px; font-weight: 700; color: #1e293b; margin-right: 8px; }
+
+.del-btn {
+  background: #fef2f2;
+  border: none;
+  color: #f43f5e;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.del-btn:hover { background: #fee2e2; color: #e11d48; }
+
+.empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px dashed #e2e8f0;
+  border-radius: 20px;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .summary-grid { gap: 8px; }
+  .sum-card { padding: 14px 8px; }
+  .sum-value { font-size: 1rem; }
+}
